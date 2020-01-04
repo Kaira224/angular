@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">About Component</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <h4 class="panel-title">Infos Utilisateurs</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Nom Utilisateur : 
+                        <span class="badge badge-secondary badge-pill"><strong>{{infos.nom}}</strong></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Email Utilisateur : 
+                        <span class="badge badge-secondary badge-pill"><strong>{{infos.email}}</strong></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Téléphone Utilisateur : 
+                        <span class="badge badge-secondary badge-pill"><strong>{{infos.tel}}</strong></span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div>
+                    <div class="form-group">
+                      <label for="commentaire">Message : </label>
+                      <input type="text" [(ngModel)] = "comment.message" name="commentaire" id="commentaire" class="form-control" placeholder="Saisir un commentaire" aria-describedby="helpId">
+                      <button id="" class="btn btn-primary" (click) = "onAddCommentaire()">Commenter</button>
+                      <small id="helpId" class="text-muted">Un commentaire sur la page</small>
+                    </div>
+                </div>
+                <h4 class="panel-title">Commentaires</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let c of commentaires">
+                        {{c.message}}
+                        <span>{{c.dateCommentaire | date : 'dd/MM/yyyy:HH:mm:ss'}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
